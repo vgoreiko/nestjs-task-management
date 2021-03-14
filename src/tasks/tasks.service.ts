@@ -25,9 +25,9 @@ export class TasksService {
   }
 
   deleteTaskById(id: string) {
-    const task = this.tasks.find((item) => item.id == id);
-    if (!!task) {
-      this.tasks = this.tasks.filter((item) => item.id === id);
+    const taskIndex = this.tasks.findIndex((item) => item.id == id);
+    if (taskIndex > -1) {
+      return this.tasks.splice(taskIndex, 1);
     } else {
       return {
         message: 'NOT FOUND',
