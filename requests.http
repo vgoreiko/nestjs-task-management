@@ -1,16 +1,28 @@
-http://localhost:3000/tasks
 ###
+http://localhost:3000/tasks
 
+###
 POST http://localhost:3000/tasks HTTP/1.1
 content-type: application/json
 
 {
-    "title": "task1",
-    "description": "Task1 descriptions"
+  "title": "Task3",
+  "description": "Desc3"
 }
 
 ###
-DELETE http://localhost:3000/tasks/8e99c896-f0bd-448f-995a-bbdfc813179b
+DELETE http://localhost:3000/tasks/79b724a7-15cb-4b7f-943e-6e2368bb6b39
 
 ###
-GET http://localhost:3000/tasks/8e64b800-ea1c-42db-a0d4-b26624f402e3
+GET http://localhost:3000/tasks/79b724a7-15cb-4b7f-943e-6e2368bb6b39
+
+###
+PATCH http://localhost:3000/tasks/79b724a7-15cb-4b7f-943e-6e2368bb6b39/status
+content-type: application/json
+
+{
+  "status": "DONE"
+}
+
+###
+http://localhost:3000/tasks?status=IN_PROGRESS
