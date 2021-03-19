@@ -4,7 +4,7 @@ import {
 }                           from "@nestjs/common";
 import { TaskRepository }   from "./task.repository";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Task }             from "./taks.entity";
+import { Task }             from "./task.entity";
 import {
   CreateTaskDTO,
   TaskFilterDto

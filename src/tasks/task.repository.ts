@@ -2,7 +2,7 @@ import {
   EntityRepository,
   Repository
 }                     from "typeorm";
-import { Task }       from "./taks.entity";
+import { Task }       from "./task.entity";
 import {
   CreateTaskDTO,
   TaskFilterDto

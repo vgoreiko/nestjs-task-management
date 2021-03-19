@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 import * as Joi from '@hapi/joi';
 
 @Module({
@@ -13,6 +14,7 @@ import * as Joi from '@hapi/joi';
         DATABASE_NAME: Joi.string().required(),
         DATABASE_HOST: Joi.string().required(),
         DATABASE_PORT: Joi.number().required(),
+        JWT_SECRET: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRootAsync({
@@ -37,6 +39,7 @@ import * as Joi from '@hapi/joi';
       inject: [ConfigService],
     }),
     TasksModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

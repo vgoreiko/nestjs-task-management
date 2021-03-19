@@ -1,7 +1,8 @@
-###
+### Get all tasks
 http://localhost:3000/tasks
+Authorization: Bearer
 
-###
+### Create tasks
 POST http://localhost:3000/tasks HTTP/1.1
 content-type: application/json
 
@@ -10,13 +11,13 @@ content-type: application/json
   "description": "Desc323213"
 }
 
-###
+### Delete task by id
 DELETE http://localhost:3000/tasks/2
 
-###
+### Get task by id
 GET http://localhost:3000/tasks/1
 
-###
+### Change task status
 PATCH http://localhost:3000/tasks/1/status
 content-type: application/json
 
@@ -24,8 +25,35 @@ content-type: application/json
   "status": "DONE"
 }
 
-###
+### Search tasks by status
 http://localhost:3000/tasks?status=DONE
 
-###
+### Search tasks by term
 http://localhost:3000/tasks?term=Desc3
+
+### Create user signUp
+POST http://localhost:3000/auth/signUp
+content-type: application/json
+
+{
+  "username": "astulovvv",
+  "password": "A$stulovvv"
+}
+
+### User signIn
+#{
+#  "username": "astulov1",
+#  "password": "A$stulov123"
+#}
+POST http://localhost:3000/auth/signIn
+content-type: application/json
+
+{
+  "username": "astulov1",
+  "password": "A$stulov123"
+}
+
+
+
+
+
