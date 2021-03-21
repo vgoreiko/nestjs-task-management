@@ -11,15 +11,12 @@ import * as Joi from '@hapi/joi';
   imports: [
     ConfigModule.forRoot({
       validationSchema: Joi.object({
-        DATABASE_USERNAME: Joi.string().required(),
-        DATABASE_PASSWORD: Joi.string().required(),
-        DATABASE_NAME: Joi.string().required(),
-        DATABASE_HOST: Joi.string().required(),
-        DATABASE_PORT: Joi.number().required(),
+        DB_DATABASE: Joi.string().required(),
+        DB_PASSWORD: Joi.string().required(),
+        DB_USERNAME: Joi.string().required(),
+        DB_HOST: Joi.string().required(),
+        DB_PORT: Joi.number().required(),
         JWT_SECRET: Joi.string().required(),
-        NODE_ENV: Joi.string()
-          .required()
-          .default('development'),
         SERVER_ORIGIN: Joi.string(),
         SERVER_PORT: Joi.number().default(3000)
       }),
@@ -28,11 +25,11 @@ import * as Joi from '@hapi/joi';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => {
-        const username = process.env.DATABASE_USERNAME || config.get('DATABASE_USERNAME');
-        const password = process.env.DATABASE_PASSWORD || config.get('DATABASE_PASSWORD');
-        const database = process.env.DATABASE_NAME || config.get('DATABASE_NAME');
-        const host = process.env.DATABASE_HOST || config.get('DATABASE_HOST');
-        const port = Number(process.env.DATABASE_PORT) || config.get('DATABASE_PORT');
+        const username = process.env.DB_DATABASE || config.get('DB_DATABASE');
+        const password = process.env.DB_PASSWORD || config.get('DB_PASSWORD');
+        const database = process.env.DATABASE_NAME || config.get('DB_USERNAME');
+        const host = process.env.DB_HOST || config.get('DB_HOST');
+        const port = Number(process.env.DB_PORT) || config.get('DB_PORT');
         return {
           type: 'postgres',
           autoLoadEntities: true,
