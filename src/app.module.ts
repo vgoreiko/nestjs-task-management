@@ -1,4 +1,6 @@
-import { Module } from '@nestjs/common';
+import {
+  Module
+} from "@nestjs/common";
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -15,8 +17,14 @@ import * as Joi from '@hapi/joi';
         DATABASE_HOST: Joi.string().required(),
         DATABASE_PORT: Joi.number().required(),
         JWT_SECRET: Joi.string().required(),
+        NODE_ENV: Joi.string()
+          .required()
+          .default('development'),
+        SERVER_ORIGIN: Joi.string(),
+        SERVER_PORT: Joi.number().default(3000)
       }),
-    }),
+      cache: true,
+    }, ),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => {
