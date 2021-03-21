@@ -1,14 +1,15 @@
 ### Get all tasks
 http://localhost:3000/tasks
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjE2MzI4NTIzLCJleHAiOjE2MTYzMzIxMjN9.zgt2gTjt4qF1Sh_iRkNYSQYcJnmuwKofgFKw5dHWDHM
 
 ### Create tasks
 POST http://localhost:3000/tasks HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjE2MzI4NTIzLCJleHAiOjE2MTYzMzIxMjN9.zgt2gTjt4qF1Sh_iRkNYSQYcJnmuwKofgFKw5dHWDHM
 
 {
-  "title": "Task2",
-  "description": "Desc323213"
+  "title": "Buy sofa",
+  "description": "Some description"
 }
 
 ### Delete task by id
@@ -16,6 +17,7 @@ DELETE http://localhost:3000/tasks/2
 
 ### Get task by id
 GET http://localhost:3000/tasks/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjE2MzI4NTIzLCJleHAiOjE2MTYzMzIxMjN9.zgt2gTjt4qF1Sh_iRkNYSQYcJnmuwKofgFKw5dHWDHM
 
 ### Change task status
 PATCH http://localhost:3000/tasks/1/status
@@ -30,14 +32,15 @@ http://localhost:3000/tasks?status=DONE
 
 ### Search tasks by term
 http://localhost:3000/tasks?term=Desc3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWF0IjoxNjE2MzI4NTIzLCJleHAiOjE2MTYzMzIxMjN9.zgt2gTjt4qF1Sh_iRkNYSQYcJnmuwKofgFKw5dHWDHM
 
 ### Create user signUp
 POST http://localhost:3000/auth/signUp
 content-type: application/json
 
 {
-  "username": "astulovvv",
-  "password": "A$stulovvv"
+  "username": "user2",
+  "password": "A$stulov1"
 }
 
 ### User signIn
@@ -49,8 +52,8 @@ POST http://localhost:3000/auth/signIn
 content-type: application/json
 
 {
-  "username": "astulov1",
-  "password": "A$stulov123"
+  "username": "user2",
+  "password": "A$stulov1"
 }
 
 

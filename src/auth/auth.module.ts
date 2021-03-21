@@ -19,11 +19,11 @@ import { JwtStrategy }    from "./jwt-strategy";
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
-        const secret = config.get("JWT_SECRET");
+        const secret = process.env.JWT_SECRET || config.get("JWT_SECRET");
         return {
           secret,
           signOptions: {
-            expiresIn: 3600
+            expiresIn: process.env.JWT_EXPIRES_IN || 3600
           }
         };
       }

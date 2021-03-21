@@ -20,11 +20,11 @@ import * as Joi from '@hapi/joi';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => {
-        const username = config.get('DATABASE_USERNAME');
-        const password = config.get('DATABASE_PASSWORD');
-        const database = config.get('DATABASE_NAME');
-        const host = config.get('DATABASE_HOST');
-        const port = config.get('DATABASE_PORT');
+        const username = process.env.DATABASE_USERNAME || config.get('DATABASE_USERNAME');
+        const password = process.env.DATABASE_PASSWORD || config.get('DATABASE_PASSWORD');
+        const database = process.env.DATABASE_NAME || config.get('DATABASE_NAME');
+        const host = process.env.DATABASE_HOST || config.get('DATABASE_HOST');
+        const port = Number(process.env.DATABASE_PORT) || config.get('DATABASE_PORT');
         return {
           type: 'postgres',
           autoLoadEntities: true,
