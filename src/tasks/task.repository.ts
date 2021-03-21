@@ -1,12 +1,12 @@
 import {
   EntityRepository,
   Repository
-}                     from "typeorm";
-import { Task }       from "./task.entity";
+}               from "typeorm";
+import { Task } from "./entities/task.entity";
 import {
   CreateTaskDTO,
   TaskFilterDto
-}                     from "./dto";
+}               from "./dto";
 import { TaskStatus } from "./task-status.enum";
 import { User }       from "../auth/user.entity";
 import {

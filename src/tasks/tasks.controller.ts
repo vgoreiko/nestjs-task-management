@@ -12,13 +12,13 @@ import {
   UseGuards,
   UsePipes,
   ValidationPipe
-} from "@nestjs/common";
-import { TasksService }             from "./tasks.service";
-import { Task }                     from "./task.entity";
+}                       from "@nestjs/common";
+import { TasksService } from "./services/tasks.service";
+import { Task }         from "./entities/task.entity";
 import {
   CreateTaskDTO,
   TaskFilterDto
-}                                   from "./dto";
+}                       from "./dto";
 import { TaskStatusValidationPipe } from "./pipes";
 import { TaskStatus }               from "./task-status.enum";
 import { DeleteResult }             from "typeorm";

@@ -4,9 +4,9 @@ import {
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn
-} from "typeorm";
-import { TaskStatus } from "./task-status.enum";
-import { User }       from "../auth/user.entity";
+}                     from "typeorm";
+import { TaskStatus } from "../task-status.enum";
+import { User }       from "../../auth/user.entity";
 
 @Entity()
 export class Task extends BaseEntity {
